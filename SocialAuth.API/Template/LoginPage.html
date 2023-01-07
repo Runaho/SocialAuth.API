@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
+        }
+
+        html, body {
+            display: grid;
+            height: 100vh;
+            width: 100%;
+            place-items: center;
+            background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+        }
+
+        ::selection {
+            background: #ff80bf;
+        }
+
+        .container {
+            background: #fff;
+            max-width: 520px;
+            min-width: 400px;
+            min-height: 450px;
+            max-height: 700px;
+            width: 100%;
+            padding: 25px 30px;
+            border-radius: 5px;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
+        }
+
+            .container form .title {
+                font-size: 30px;
+                font-weight: 600;
+                margin: 20px 0 10px 0;
+                position: relative;
+            }
+
+                .container form .title:before {
+                    content: '';
+                    position: absolute;
+                    height: 4px;
+                    width: 33px;
+                    bottom: 3px;
+                    border-radius: 5px;
+                    background-color: #E4E4E1;
+                    background-image: radial-gradient(at top center, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.03) 100%), linear-gradient(to top, rgba(255,255,255,0.1) 0%, rgba(143,152,157,0.60) 100%);
+                    background-blend-mode: normal, multiply;
+                }
+
+            .container form .input-box {
+                width: 100%;
+                height: 45px;
+                margin-top: 25px;
+                position: relative;
+            }
+
+                .container form .input-box input {
+                    width: 100%;
+                    height: 100%;
+                    outline: none;
+                    font-size: 16px;
+                    border: none;
+                }
+
+            .container form .underline::before {
+                content: '';
+                position: absolute;
+                height: 2px;
+                width: 100%;
+                background: #ccc;
+                left: 0;
+                bottom: 0;
+            }
+
+            .container form .underline::after {
+                content: '';
+                position: absolute;
+                height: 2px;
+                width: 100%;
+                background: linear-gradient(to right, #99004d 0%, #ff0080 100%);
+                left: 0;
+                bottom: 0;
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: all 0.3s ease;
+            }
+
+            .container form .input-box input:focus ~ .underline::after,
+            .container form .input-box input:valid ~ .underline::after {
+                transform: scaleX(1);
+                transform-origin: left;
+            }
+
+            .container form .button {
+                margin: 40px 0 20px 0;
+            }
+
+            .container .input-box input[type="submit"] {
+                background: linear-gradient(to right, #99004d 0%, #ff0080 100%);
+                font-size: 17px;
+                color: #fff;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+                .container .input-box input[type="submit"]:hover {
+                    letter-spacing: 1px;
+                    background: linear-gradient(to left, #99004d 0%, #ff0080 100%);
+                }
+
+            .container .option {
+                font-size: 14px;
+                text-align: center;
+            }
+
+            .container .microsoft button,
+            .container .google button,
+            .container .apple button,
+            .container .google button {
+                display: block;
+                height: 45px;
+                width: 100%;
+                font-size: 15px;
+                text-decoration: none;
+                padding-left: 20px;
+                line-height: 45px;
+                color: #fff;
+                border-radius: 5px;
+                margin: 5px 0 5px 0;
+                transition: all 0.3s ease;
+            }
+
+            .container .microsoft i,
+            .container .google i,
+            .container .apple i,
+            .container .google i {
+                padding-right: 12px;
+                font-size: 20px;
+            }
+
+            .container .microsoft button {
+                background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+            }
+
+            .container .microsoft a:hover {
+                background-image: linear-gradient(to top, #209cff 0%, #68e0cf 100%);
+            }
+
+            .container .google button {
+                background-image: linear-gradient(-225deg, #A445B2 0%, #D41872 52%, #FF0066 100%);
+            }
+
+            .container .google a:hover {
+                background-image: linear-gradient(-225deg, #d0d0d0 0%, #D41872 52%, #FF0066 100%);
+            }
+
+            .container .apple button {
+                background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
+                background-blend-mode: multiply;
+            }
+
+            .container .apple a:hover {
+                background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
+            }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <div class="container">
+        <div align="center" style=" position: absolute;top: 5vh;left: 0;right: 0;">
+            <img src="https://app.easyupload.cloud/default-monochrome.svg" class="image" style="width: 32vh;">
+        </div>
+        <form action="login?returnUrl=user&auth={{guid}}" align="center" method="post">
+            <div class="title">Login</div>
+            <div class="option">&nbsp;</div>
+
+            {{buttons}}
+
+            <hr style="margin: 5vh 0" />
+            <div style="text-align: center; color: #3c5f79; font-weight: 200; font-size: small;">
+                <p>
+                    View our <a href="https://easyupload.com/terms" target="_blank">Terms of Service</a> and <a href="https://easyupload.com/privacy" target="_blank">Privacy Policy</a>
+                </p>
+                <p>New to EasyUpload.Cloud? <a href="https://easyupload.com/learn"> Learn</a></p>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>
